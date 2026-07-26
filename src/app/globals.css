@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  /* Theme Design Colors */
+  --color-white: #FFFFFF;
+  --color-gray-bg: #F8F8F8;
+  --color-gray-light: #FAFAFA;
+  --color-gray-border: #E4E5E7;
+  --color-charcoal: #202223;
+  --color-charcoal-light: #6D7175;
+  --color-shopify-green: #95BF47; /* Bright green */
+  --color-shopify-forest: #008060; /* Dark forest green */
+
+  /* Typography */
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-heading: var(--font-plus-jakarta), sans-serif;
+
+  /* Keyframe Animations */
+  --animate-marquee-left: marqueeLeft 35s linear infinite;
+  --animate-marquee-right: marqueeRight 35s linear infinite;
+  --animate-pulse-slow: pulseSlow 3s ease-in-out infinite;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-float-reverse: floatReverse 6s ease-in-out infinite;
+
+  @keyframes floatReverse {
+    0%, 100% { transform: translateY(0px) rotate(-1deg); }
+    50% { transform: translateY(8px) rotate(1deg); }
+  }
+
+  @keyframes marqueeLeft {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.35; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+}
+
+/* Base resets */
+:root {
+  --background: #FFFFFF;
+  --foreground: #202223;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Typography Helpers */
+.text-gradient {
+  background: linear-gradient(135deg, #202223 30%, #6D7175 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-shopify {
+  background: linear-gradient(135deg, #008060 0%, #95BF47 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Theme Cards */
+.shopify-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E5E7;
+  box-shadow: 0 1px 3px rgba(32, 34, 35, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shopify-card:hover {
+  transform: translateY(-4px);
+  border-color: #95BF47;
+  box-shadow: 0 12px 24px -10px rgba(32, 34, 35, 0.08);
+}
+
+/* Input Fields */
+.shopify-input {
+  background: #FFFFFF;
+  border: 1px solid #E4E5E7;
+  color: #202223;
+  transition: all 0.25s ease;
+}
+
+.shopify-input:focus {
+  border-color: #008060;
+  box-shadow: 0 0 0 3px rgba(0, 128, 96, 0.1);
+  outline: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F8F8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D2D4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A6A7A9;
+}
+
+/* Soft ambient overlays */
+.glow-bg-shopify {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(0, 128, 96, 0.05) 0%, rgba(0, 128, 96, 0) 70%);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-bg-gray {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(228, 229, 231, 0.35) 0%, rgba(228, 229, 231, 0) 70%);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.custom-container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
